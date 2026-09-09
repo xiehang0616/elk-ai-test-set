@@ -1,0 +1,6 @@
+interface:
+  display_name: "麋鹿ai测试集"
+  short_description: "按产品场景建立通用评测目标、覆盖矩阵、测试样本与可执行评分标准"
+  default_prompt: "使用 $elk-ai-test-set 根据我的 AI 产品和用户任务建立评测目标、覆盖矩阵、测试集及评分标准。"
+policy:
+  allow_implicit_invocation: false
