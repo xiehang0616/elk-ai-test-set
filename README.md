@@ -130,6 +130,16 @@ $elk-ai-test-set
 
 ## 校验与测试
 
+### 自动检查
+
+[GitHub Actions](https://github.com/xiehang0616/elk-ai-test-set/actions/workflows/validate.yml) 会在提交到 `main`、创建或更新 PR 时自动检查，也支持在 Actions 页面手动运行。
+
+检查在 Python 3.9 和 3.13 上分别执行：校验器单元测试、示例题库字段与覆盖率检查、评分工作台与初始空表检查，以及示例跨表关联与汇总检查。各步骤只使用 Python 标准库，不调用模型或付费 API。
+
+PR 页面可查看检查结果和失败日志。这些检查验证 CSV 与脚本的一致性，不验证真实模型效果、人工评分质量或 Excel 模板；是否将检查设为合并的强制条件，需要另行配置分支规则。
+
+### 本地运行
+
 以下命令在仓库根目录运行。
 
 检查题库字段、样本数及指标覆盖：
@@ -162,6 +172,7 @@ python3 examples/knowledge-base-eval/check_example.py
 
 ```text
 elk-ai-test-set/
+├── .github/workflows/validate.yml  # PR 与主分支的自动检查
 ├── SKILL.md                  # 技能入口与工作规则
 ├── README.md                 # 使用说明
 ├── LICENSE.md                # 许可证文本
